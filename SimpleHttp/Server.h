@@ -5,9 +5,10 @@ int initListenFd(unsigned short port);
 //启动epoll
 int epollRun(int lfd);
 //和客户端建立连接
-int acceptClient(int lfd, int epfd);
+//int acceptClient(int lfd, int epfd);
+void* acceptClient(void* arg);
 //接收HTTP请求
-int recvHttpRequest(int cfd,int epfd);
+void* recvHttpRequest(void* arg);
 //解析请求行
 int parseRequestLine(const char*line,int cfd);
 //发送文件
@@ -18,3 +19,5 @@ int sendHeadMsg(int cfd, int status, const char* descr, const char* type, int le
 const char* getFileType(const char* name);
 //发送目录
 int sendDir(const char* dirName, int cfd);
+int hexToDec(char c);
+void decodeMsg(char* to, char* from);

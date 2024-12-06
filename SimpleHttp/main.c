@@ -10,6 +10,8 @@ int main(int argc, char* argv[])
         printf("./a.out port path\n");
         return -1;
     }
+    //argv[1] = "10000";
+    //argv[2] = "D:\\shareVM";
     unsigned short port = atoi(argv[1]);
     // 切换服务器的工作路径
     chdir(argv[2]);
